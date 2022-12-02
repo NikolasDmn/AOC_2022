@@ -44,8 +44,9 @@ public class Day02 extends Day {
         int score = 0;
         for(char[] game:data){
             score +=3*(game[1]-'X');
-//          I don't even know how I found this equation.
-//          I thought there would be one, so I did a lot of trial and error.
+//            This equation works by first getting the value of the opponent
+//            Then, by doing figuring out which outcome we want, we can add
+//            a specific number to our opponent to get the correct move
             score += (game[0]-'A' + game[1]-'X' +2)%3+1;
         }
         return String.valueOf(score);
