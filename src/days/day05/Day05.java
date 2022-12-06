@@ -54,7 +54,6 @@ public class Day05 extends Day {
             for(int i=0;i<move[0];i++){
                 stacks.get(move[2]-1).push(stacks.get(move[1]-1).pop());
             }
-            System.out.println(stacks);
         }
         StringBuilder rtrn = new StringBuilder();
         for(Stack<Character>stack: stacks){
@@ -75,7 +74,6 @@ public class Day05 extends Day {
             Collections.reverse(moved_elements);
             for(Character chr:moved_elements){
                 stacks.get(move[2]-1).push(chr);
-
             }
             System.out.println(stacks);
         }
