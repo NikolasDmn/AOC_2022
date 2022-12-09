@@ -3,6 +3,7 @@ package days.day06;
 import days.Day;
 
 import java.util.HashSet;
+import java.util.List;
 
 
 public class Day06 extends Day {
@@ -17,6 +18,8 @@ public class Day06 extends Day {
     public char[] parseInput(String input) {
         return input.toCharArray();
     }
+
+//    if ((new HashSet<>(List.of(data).subList(i, i+length)).size() == length)) return i;
     public int getIndexUnique(int length,char[] data){
         for(int i =0;i<data.length-1-length;i++) {
             HashSet<Character> set =new HashSet<>();

@@ -80,8 +80,10 @@ public class Day01Revised extends Day {
     }
 
     public List<Integer> parseInput(String input) {
-        return Arrays.stream(input.split("\\r?\\n\\r?\\n")).map(elf -> elf.lines().mapToInt(Integer::parseInt).sum()).sorted(Collections.reverseOrder()).collect(Collectors.toList());
-
+        return Arrays.stream(input.split("\\r?\\n\\r?\\n"))
+                .map(elf -> elf.lines().mapToInt(Integer::parseInt).sum())
+                .sorted(Collections.reverseOrder())
+                .collect(Collectors.toList());
     }
 
     public String part1(String input) {
@@ -90,7 +92,6 @@ public class Day01Revised extends Day {
 
     public String part2(String input) {
         return String.valueOf(parseInput(input).get(0) + parseInput(input).get(1) + parseInput(input).get(2));
-
     }
 
     @Override
