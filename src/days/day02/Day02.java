@@ -3,6 +3,7 @@ package days.day02;
 import days.Day;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 
 public class Day02 extends Day {
@@ -15,6 +16,7 @@ public class Day02 extends Day {
     }
 
     public int[][] parseInput(String input) {
+
         String[] lines = input.split("\\r?\\n");
         int[][] data = new int[lines.length][2];
         for(int i =0; i<lines.length;i++){
