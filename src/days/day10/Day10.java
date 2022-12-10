@@ -2,11 +2,9 @@ package days.day10;
 
 import days.Day;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class Day10 extends Day {
@@ -22,11 +20,8 @@ public class Day10 extends Day {
         return input.lines().map(ln -> ln.split(" ")).collect(Collectors.toList());
     }
     public int determineCycle(String command){
-        switch (command){
-            case "addx": return 2;
-            case "noop": return 1;
-            default: return 1;
-        }
+        if (command.equals("addx")) return 2;
+        return 1;
     }
     public String part1(String input) {
         int cycle = 0;
@@ -48,10 +43,8 @@ public class Day10 extends Day {
     }
     private String[][] getScreen(){
         String[][] array = new String[6][40];
-        for(int i=0;i<array.length;i++){
-            for(int a=0;a<array[i].length;a++){
-                array[i][a] = ".";
-            }
+        for (String[] strings : array) {
+            Arrays.fill(strings, ".");
         }
         return array;
     }
@@ -78,14 +71,14 @@ public class Day10 extends Day {
         return print(screen);
     }
     private String print(String[][] screen){
-        String s = "\n";
+        StringBuilder s = new StringBuilder("\n");
         for(String[] line:screen){
             for(String pixel:line){
-                s+=pixel;
+                s.append(pixel);
             }
-            s+="\n";
+            s.append("\n");
         }
-        return s;
+        return s.toString();
     }
     public void draw(String[][] screen, int x, int y){
         if (Math.abs(y%40-x)<2) screen[y/40][y%40] = "#";

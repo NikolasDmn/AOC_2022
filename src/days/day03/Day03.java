@@ -17,8 +17,7 @@ public class Day03 extends Day {
     }
 
     public String[] parseInput(String input) {
-        String[] data = input.split("\\r?\\n");
-        return data;
+        return input.split("\\r?\\n");
     }
     private Set<Character> findCommon(char[] firstCompartment, char[] secondCompartment){
         Set<Character> firstCompartnemntSet = new HashSet<>();

@@ -2,12 +2,9 @@ package days.day08;
 
 import days.Day;
 
-import java.security.cert.CollectionCertStoreParameters;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 
 public class Day08 extends Day {
@@ -43,11 +40,13 @@ public class Day08 extends Day {
     }
 
     private int determineIfVisible(int row, int treeIndex) {
-//        if(row==0 || row==this.data.size()-1 || treeIndex==0 || treeIndex == this.data.get(row).size()-1) return 1;
         int tree = this.data.get(row).get(treeIndex);
         boolean isVisible =true;
         for(int i=row-1; i >=0; i--){
-            if (tree <= this.data.get(i).get(treeIndex)) isVisible =false;
+            if (tree <= this.data.get(i).get(treeIndex)) {
+                isVisible = false;
+                break;
+            }
         }
         if(isVisible){
             return 1;
@@ -55,22 +54,22 @@ public class Day08 extends Day {
         isVisible =true;
         for(int i =row+1;i<this.data.size();i++){
 
-            if (tree <= this.data.get(i).get(treeIndex)) isVisible =false;
+            if (tree <= this.data.get(i).get(treeIndex)) {
+                isVisible = false;
+                break;
+            }
         }
         if(isVisible){
             return 1;
         }
-        isVisible =true;
-        for(int i=treeIndex-1; i >=0; i--){
-            if (tree <= this.data.get(row).get(i)) isVisible =false;
-        }if(isVisible){
+        isVisible = IntStream.iterate(treeIndex - 1, i -> i >= 0, i -> i - 1).noneMatch(i -> tree <= this.data.get(row).get(i));
+        if(isVisible){
             return 1;
         }
-        isVisible =true;
         for(int i =treeIndex+1;i<this.data.size();i++){
             if (tree <= this.data.get(row).get(i)) return 0;
         }
-        return isVisible? 1:0;
+        return 1;
     }
     private int determineScenicScore(int row,int col){
         int score = 1;

@@ -83,11 +83,11 @@ public class Day01 extends Day {
             try {
                 sum += Integer.parseInt(line);
             } catch (Exception e) {
-                data.add(Integer.valueOf(sum));
+                data.add(sum);
                 sum = 0;
             }
         }
-        data.add(Integer.valueOf(sum));
+        data.add(sum);
         return data;
     }
 

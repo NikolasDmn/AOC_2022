@@ -20,7 +20,7 @@ public class Day09 extends Day {
     public List<String[]> parseInput(String input) {
         return input.lines().map(l -> l.split(" ")).collect(Collectors.toList());
     }
-    public class Point{
+    public static class Point{
         public int x = 0;
         public int y = 0;
         public Point(){}
@@ -48,9 +48,9 @@ public class Day09 extends Day {
                 System.out.println("Incorrect direction: " + direction);
         }
     }
-    public int getPlaces(List<String[]> commands, int knotAmmount){
-        Point[] knots = new Point[knotAmmount];
-        for(int i = 0;i<knotAmmount;i++) knots[i] = new Point();
+    public int getPlaces(List<String[]> commands, int knotAmount){
+        Point[] knots = new Point[knotAmount];
+        for(int i = 0;i<knotAmount;i++) knots[i] = new Point();
         HashSet<String> positions = new HashSet<>();
         for(String[] command: commands){
             String direction = command[0];

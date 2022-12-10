@@ -11,7 +11,7 @@ public class Day07 extends Day {
         int getSize();
 
     }
-    private class Fl implements Item {
+    private static class Fl implements Item {
         private final int size;
         private final String path;
         public int getSize(){
@@ -26,7 +26,7 @@ public class Day07 extends Day {
             return this.path;
         }
     }
-    private class Dir implements Item {
+    private static class Dir implements Item {
         private final ArrayList<Item> items = new ArrayList<>();
         private final String path;
         public int getSize(){
@@ -90,13 +90,13 @@ public class Day07 extends Day {
                 break;
             }
             if(line.get(0).equals("dir")){
-                Dir newDir = new Dir(path+line.get(1)+"/");
+                Dir newDir = new Dir(path + line.get(1) + "/");
                 directories.add(newDir);
                 directory.addItem(newDir);
             }
             else {
                 int size = Integer.parseInt(line.get(0));
-                directory.addItem(new Fl(path+line.get(1),size));
+                directory.addItem(new Fl(path + line.get(1), size));
             }
         }
         return directories;

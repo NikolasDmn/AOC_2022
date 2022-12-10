@@ -2,8 +2,6 @@ package days.day02;
 
 import days.Day;
 
-import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 
 public class Day02 extends Day {

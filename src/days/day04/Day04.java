@@ -4,8 +4,6 @@ import days.Day;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 
 public class Day04 extends Day {
@@ -43,7 +41,6 @@ public class Day04 extends Day {
 
     public String part2(String input) {
         ArrayList<String[]> data = parseInput(input);
-        Set<Integer> overlamps = new HashSet<>();
         int sum = 0;
         for(String[] line: data){
             int[] elem1 = Arrays.stream(line[0].split("-")).mapToInt(Integer::parseInt).toArray();
